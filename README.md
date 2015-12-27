@@ -4,6 +4,7 @@ Techno Tap is a simple speed-dev iOS project created with a 2 week deadline.
 Serverside code for the scoreboard is also included.
 
 Available for download from the iOS app store here: https://itunes.apple.com/us/app/techno-tap/id986631346?mt=8
+Live scoreboard: http://digitaldiscrepancy.com/TechnoTap/
 
 Some key features of this app include custom UI, Audio consisting of Music and/or SFX, encryption, score keeping, and networking.
 
