@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="GoodTimesRg.ttf">
+            <string>GoodTimesRg-Regular</string>
+            <string>GoodTimesRg-Regular</string>
+            <string>GoodTimesRg-Regular</string>
+            <string>GoodTimesRg-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2015 Digital Discrepancy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuW-dT-WnF">
+                                <rect key="frame" x="0.0" y="547" width="320" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ezQ-3f-PEZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GoodTimesRg-Regular" family="Good Times" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yid-ox-tRh">
+                                <rect key="frame" x="274" y="509" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="m4M-77-i6c"/>
+                                    <constraint firstAttribute="height" constant="30" id="uXz-OJ-SBs"/>
+                                </constraints>
+                                <state key="normal" image="Images/gear.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="C2n-g0-yHM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfw-BF-4dn" customClass="UIImageButton">
+                                <rect key="frame" x="58" y="490" width="205" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3q4-0c-5aW"/>
+                                    <constraint firstAttribute="width" constant="205" id="PpH-RP-vMX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GoodTimesRg-Regular" family="Good Times" pointSize="15"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="helpPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Rb-tk-bkC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Kv-L2-Esr" customClass="UIImageButton">
+                                <rect key="frame" x="58" y="378" width="205" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5JO-vi-rXy"/>
+                                    <constraint firstAttribute="width" constant="205" id="Pf3-nP-d5t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GoodTimesRg-Regular" family="Good Times" pointSize="15"/>
+                                <state key="normal" title="Start Game">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xWC-WJ-Csu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VT-Od-IYX" customClass="UIImageButton">
+                                <rect key="frame" x="58" y="435" width="205" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="CTl-El-a9q"/>
+                                    <constraint firstAttribute="width" constant="205" id="pa9-Ab-aGH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GoodTimesRg-Regular" family="Good Times" pointSize="15"/>
+                                <state key="normal" title="Scoreboard">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scoreboardPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="coE-Ml-HVI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="2Kv-L2-Esr" secondAttribute="centerX" id="Gt0-b3-wPc"/>
+                            <constraint firstAttribute="centerX" secondItem="RuW-dT-WnF" secondAttribute="centerX" id="MXh-z6-VlZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Yid-ox-tRh" secondAttribute="bottom" constant="29" id="N1x-dM-aoK"/>
+                            <constraint firstAttribute="centerX" secondItem="Wfw-BF-4dn" secondAttribute="centerX" id="Osy-oP-sEL"/>
+                            <constraint firstAttribute="trailing" secondItem="Yid-ox-tRh" secondAttribute="trailing" constant="16" id="Ow4-Fq-L5i"/>
+                            <constraint firstAttribute="bottom" secondItem="Wfw-BF-4dn" secondAttribute="bottom" constant="38" id="Rkk-UH-eMH"/>
+                            <constraint firstAttribute="bottom" secondItem="RuW-dT-WnF" secondAttribute="bottom" id="bd5-Zy-dxL"/>
+                            <constraint firstAttribute="bottom" secondItem="2Kv-L2-Esr" secondAttribute="bottom" constant="150" id="fp3-6c-L99"/>
+                            <constraint firstAttribute="trailing" secondItem="RuW-dT-WnF" secondAttribute="trailing" id="lYh-9p-Hb2"/>
+                            <constraint firstItem="RuW-dT-WnF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="m5g-YE-LCm"/>
+                            <constraint firstAttribute="centerX" secondItem="7VT-Od-IYX" secondAttribute="centerX" id="mY3-B3-3YJ"/>
+                            <constraint firstAttribute="bottom" secondItem="7VT-Od-IYX" secondAttribute="bottom" constant="93" id="qda-eY-98F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnHelp" destination="Wfw-BF-4dn" id="bnb-bg-CAy"/>
+                        <outlet property="btnScoreboard" destination="7VT-Od-IYX" id="oXJ-2F-Frv"/>
+                        <outlet property="btnSettings" destination="Yid-ox-tRh" id="Z2C-l7-nUc"/>
+                        <outlet property="btnStart" destination="2Kv-L2-Esr" id="nYM-WQ-CKN"/>
+                        <outlet property="lblCopyright" destination="RuW-dT-WnF" id="M2o-0b-qQe"/>
+                        <segue destination="Ach-nF-TU4" kind="modal" identifier="MenuToHelp" id="d96-1i-2tB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="484"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k7z-ls-E7Y">
+            <objects>
+                <navigationController id="Ach-nF-TU4" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FSC-1V-tdh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tNM-UN-JMd" kind="relationship" relationship="rootViewController" id="wyf-Rd-LdB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mlo-D3-f8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="730" y="484"/>
+        </scene>
+        <!--Help-->
+        <scene sceneID="tEm-Ej-fuv">
+            <objects>
+                <viewController id="tNM-UN-JMd" customClass="HelpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BeS-E3-GT0"/>
+                        <viewControllerLayoutGuide type="bottom" id="eBD-st-aFK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VcT-sI-j6s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="V9s-ZH-7zL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Techno Tap is a game of memory, speed, and reflexes. After the squares flash, you must tap the same squares in the same order before the timer in at the bottom of the screen runs out.
+
+As you progress, the tiles will flash faster, and become more abundant. You can miss three times before 'Game Over'.
+
+Once you've exhausted your three hearts, you may submit your final score.
+
+If you find any bugs or have any comments, please let us know using the "Contact Us" button, have fun!
+
+Flags by: www.icondrawer.com 
+
+www.DigitalDiscrepancy.com</string>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="V9s-ZH-7zL" secondAttribute="trailing" id="IwC-i4-IrO"/>
+                            <constraint firstAttribute="bottom" secondItem="V9s-ZH-7zL" secondAttribute="bottom" id="bvU-Tz-IMH"/>
+                            <constraint firstItem="V9s-ZH-7zL" firstAttribute="top" secondItem="VcT-sI-j6s" secondAttribute="top" id="hkg-sX-1k3"/>
+                            <constraint firstItem="V9s-ZH-7zL" firstAttribute="leading" secondItem="VcT-sI-j6s" secondAttribute="leading" id="mnv-rX-9af"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Help" id="8hq-YU-yag">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="P5i-Kt-OXh">
+                            <connections>
+                                <action selector="cancelPressed:" destination="tNM-UN-JMd" id="6Dg-pE-1CN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Contact us" id="TtL-of-2S0">
+                            <connections>
+                                <action selector="contactUsPressed:" destination="tNM-UN-JMd" id="3Io-VQ-5Fo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="V9s-ZH-7zL" id="yHH-qI-K5a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4hb-Oi-5Xp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1165" y="484"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Images/gear.png" width="16" height="16"/>
+    </resources>
+</document>
