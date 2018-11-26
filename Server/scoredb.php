@@ -27,10 +27,11 @@ class scoreboarddb{
 	public $dbuser = "DATABASE_USER_HERE";
 	public $dbpassword = "DATABASE_PASSWORD_HERE";
 	public $dbhost = "localhost";
+	public $connection = NULL;
 
 	function __construct(){
-		$connection = mysql_connect($this->dbhost, $this->dbuser, $this->dbpassword);// or die('unable to connect!');
-		mysql_select_db($this->dbname) or die("Unable to access database! " . mysql_error());
+		$this->connection = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname) or die("Unable to access database! " . mysql_error());
+		
 		$this->create_tables();  //Configure the database for use (It wont' hurt anything but performance if you run this every time, I recommend you uncomment it after the database is created though!)
 		$this->deleteOldScores();
 	}
@@ -40,11 +41,11 @@ class scoreboarddb{
 		$oldestRecentScore = 0;
 		
 		$sql = "SELECT * FROM scores ORDER BY score DESC LIMIT 100";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 		
 		if($result){
 			$top100 = array();
-			while($row = mysql_fetch_assoc($result)){
+			while($row = $result->fetch_assoc()){
      			$top100[] = $row;
 			}
 			if (count($top10) >= 100){
@@ -54,23 +55,23 @@ class scoreboarddb{
 		}
 		
 		$sql = "SELECT * FROM scores ORDER BY timestamp DESC LIMIT 100";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 		
 		if($result){
 			$oldestRecentScore = time()+1000;
-			while($row = mysql_fetch_assoc($result)){
+			while($row = $result->fetch_assoc()){
      			$oldestRecentScore = min($oldestRecentScore, $row["timestamp"]);
 			}
 		}
 		
 		$sql ="DELETE FROM scores WHERE (score < $lowestHighScore AND timestamp < $oldestRecentScore)";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 	}
 	
 	function deleteScoresForUser($user){
 		$user = mysql_escape_string($user);
 		$sql ="DELETE FROM scores WHERE username=\"$user\"";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 	}
 	
 	function create_tables(){
@@ -83,7 +84,7 @@ class scoreboarddb{
 			PRIMARY KEY (id)
 			)";
 			
-			$result = mysql_query($sql);
+			$result = mysqli_query($this->connection, $sql);
 	}
 	
 	
@@ -91,17 +92,17 @@ class scoreboarddb{
 		return;  //Force us to edit the code to *actually* delete ALL records!
 		
 		$sql ="DELETE FROM scores";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 		return $result;
 	}
 	
 	function getTop100Scores(){
 		$sql = "SELECT * FROM scores ORDER BY score DESC LIMIT 100";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 		
 		if($result){
 			$top100 = array();
-			while($row = mysql_fetch_assoc($result)){
+			while($row = $result->fetch_assoc()){
      			$top100[] = $row;
 			}
 			return $top100;
@@ -113,11 +114,11 @@ class scoreboarddb{
 	function getRecentScores(){
 		$oneHourAgo = time()-60*60;
 		$sql = "SELECT * FROM scores ORDER BY timestamp DESC LIMIT 100";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 		
 		if($result){
 			$recent = array();
-			while($row = mysql_fetch_assoc($result)){
+			while($row = $result->fetch_assoc()){
      			$recent[] = $row;
 			}
 			return $recent;
@@ -128,7 +129,7 @@ class scoreboarddb{
 	
 	function addScore($username, $country, $score){
 		$sql="INSERT into scores (username, timestamp, country, score) VALUES (\"$username\", ".time().", \"$country\", \"$score\")";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->connection, $sql);
 		if(!$result){
 			die('Error: ' . mysql_error());
 		}
