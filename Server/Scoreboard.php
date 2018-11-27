@@ -60,7 +60,7 @@ if ($_POST["data"]){
 	if (sizeof($info) > 2){
 		//We probably don't need these mysql escapes here, since these requests are encrypted, but just in case
 		//a hacker does crack the AES, the worst they will be able to do is insert a fake score
-		$scoreId = $scoreboard->addScore(mysql_escape_string($info[0]), mysql_escape_string($info[1]), mysql_escape_string($info[2]));
+		$scoreId = $scoreboard->addScore($info[0], $info[1], $info[2]);
 		$recent = $scoreboard->getRecentScores();
 
 		echo json_encode(array('scoreId'=>$scoreId, 'recent'=>formatForiOS($recent, true),'success'=>1));
