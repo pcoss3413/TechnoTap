@@ -30,7 +30,7 @@ class scoreboarddb{
 	public $connection = NULL;
 
 	function __construct(){
-		$this->connection = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname) or die("Unable to access database! " . mysql_error());
+		$this->connection = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpassword, $this->dbname) or die("Unable to access database! " . mysqli_error($this->connection));
 		
 		$this->create_tables();  //Configure the database for use (It wont' hurt anything but performance if you run this every time, I recommend you uncomment it after the database is created though!)
 		$this->deleteOldScores();
@@ -69,7 +69,7 @@ class scoreboarddb{
 	}
 	
 	function deleteScoresForUser($user){
-		$user = mysql_escape_string($user);
+		$user = mysqli_real_escape_string($user);
 		$sql ="DELETE FROM scores WHERE username=\"$user\"";
 		$result = mysqli_query($this->connection, $sql);
 	}
@@ -128,13 +128,13 @@ class scoreboarddb{
 	}
 	
 	function addScore($username, $country, $score){
-		$sql="INSERT into scores (username, timestamp, country, score) VALUES (\"$username\", ".time().", \"$country\", \"$score\")";
+		$sql="INSERT into scores (username, timestamp, country, score) VALUES (\"".mysqli_real_escape_string($this->connection, $username)."\", ".time().", \"".mysqli_real_escape_string($this->connection, $country)."\", \"".mysqli_real_escape_string($this->connection, $score)."\")";
 		$result = mysqli_query($this->connection, $sql);
 		if(!$result){
-			die('Error: ' . mysql_error());
+			die('Error: ' . mysqli_error($this->connection));
 		}
 		
-		$scoreId = mysql_insert_id();
+		$scoreId = mysqli_insert_id($this->connection);
 		return $scoreId;
 		
 	}	
